@@ -1,11 +1,26 @@
+import { useEffect, useState } from "react";
 import "./App.css";
+import { get } from "./apis/userFetcher";
 
 function App() {
+  const [res, setRes] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const resData = await get("/posts");
+      setRes(resData);
+    })();
+  }, []);
+
+  console.log(res);
+
   return (
     <>
-      <h1>폰트</h1>
-      <h2>FONT</h2>
-      <h3>font</h3>
+      <div>
+        {res.data.map((item) => {
+          return <div key={item.userId}>{item.title}</div>;
+        })}
+      </div>
     </>
   );
 }
