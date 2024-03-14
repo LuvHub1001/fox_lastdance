@@ -1,1 +1,1 @@
-# fox-s_lastdance
+# 뼈대 잡기 위주
