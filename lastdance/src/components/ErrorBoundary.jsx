@@ -1,0 +1,31 @@
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+      error: null,
+    };
+  }
+
+  static getDerivedStateFromError(error) {
+    return {
+      hasError: true,
+      error: error,
+    };
+  }
+
+  ComponentDidCatch(err, errInfo) {
+    console.log(`error :: ${err}`);
+    console.log(`errorInfo :: ${errInfo}`);
+  }
+
+  render() {
+    const { hasError } = this.state;
+
+    if (hasError) {
+      return <div>Global Error</div>;
+    }
+
+    return this.props.children;
+  }
+}
