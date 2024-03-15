@@ -4,13 +4,14 @@ import App from "../App";
 import Loading from "../components/Loading";
 
 const PublicRouter = () => {
-  <Suspense fallback={<Loading />}>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}></Route>
-      </Routes>
-    </BrowserRouter>
-    ;
-  </Suspense>;
+  return (
+    <Suspense fallback={<Loading />}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
+  );
 };
 export default PublicRouter;

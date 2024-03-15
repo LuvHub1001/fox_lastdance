@@ -4,6 +4,7 @@ import { get } from "./apis/userFetcher";
 import ErrorBoundary from "./components/ErrorBoundary";
 import TempComponent from "./components/TempComponent";
 import Loading from "./components/Loading";
+import PublicRouter from "./routes/PublicRouter";
 
 function B() {
   throw new Error();
@@ -24,13 +25,15 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<Loading />}>
-        <TempComponent />
-        <TempComponent />
-        <TempComponent />
-        <TempComponent />
-        <TempComponent />
-      </Suspense>
+      <PublicRouter>
+        <Suspense fallback={<Loading />}>
+          <TempComponent />
+          <TempComponent />
+          <TempComponent />
+          <TempComponent />
+          <TempComponent />
+        </Suspense>
+      </PublicRouter>
     </ErrorBoundary>
   );
 }
