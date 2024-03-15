@@ -1,14 +1,15 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "../App";
 import Loading from "../components/Loading";
+// import TempComponent from "../components/TempComponent";
+const TempComponent = React.lazy(() => import("../components/TempComponent"));
 
 const PublicRouter = () => {
   return (
     <Suspense fallback={<Loading />}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}></Route>
+          <Route path="/" element={<TempComponent />}></Route>
         </Routes>
       </BrowserRouter>
     </Suspense>
