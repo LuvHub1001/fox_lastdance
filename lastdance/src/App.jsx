@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { get } from "./apis/userFetcher";
 import ErrorBoundary from "./components/ErrorBoundary";
+import TempComponent from "./components/TempComponent";
 
 function B() {
   throw new Error();
@@ -22,9 +23,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div>
-        <B />
-      </div>
+      <TempComponent />
     </ErrorBoundary>
   );
 }
