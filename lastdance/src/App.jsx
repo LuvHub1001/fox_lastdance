@@ -24,11 +24,13 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <TempComponent />
-      <TempComponent />
-      <TempComponent />
-      <TempComponent />
-      <TempComponent />
+      <Suspense fallback={<Loading />}>
+        <TempComponent />
+        <TempComponent />
+        <TempComponent />
+        <TempComponent />
+        <TempComponent />
+      </Suspense>
     </ErrorBoundary>
   );
 }
