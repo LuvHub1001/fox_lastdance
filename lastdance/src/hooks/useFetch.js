@@ -1,9 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { get } from "../apis/userFetcher";
 
-const useFetch = (fetch, param, config) => {
-  const CACHE = {};
-
+const useFetch = (fetch, params, config) => {
   const [_promise, _setPromise] = useState();
   const [_status, _setStatus] = useState("pending");
   const [_result, _setResult] = useState(null);
@@ -11,23 +8,19 @@ const useFetch = (fetch, param, config) => {
   const resolve = useCallback(
     (result) => {
       _setStatus("fulfilled");
-      if (CACHE[param]) {
-        _setResult(CACHE[param]);
-      } else {
-        CACHE[param] = result;
-        _setResult(result);
-      }
+      _setResult(result);
     },
-    [param]
+    [params]
   );
 
-  // API Error 기능 추가는 아직...
   useEffect(() => {
     _setStatus("pending");
-    if (CACHE[param]) {
-      resolve(CACHE[param]);
-    }
-  }, [param]);
+    _setPromise(
+      fetch(params, config)
+        .then(resolve)
+        .catch((err) => Promise.reject(err))
+    );
+  }, [params]);
 
   if (_status === "pending" && _promise) {
     throw _promise;
@@ -35,5 +28,4 @@ const useFetch = (fetch, param, config) => {
 
   return _result;
 };
-
 export default useFetch;
