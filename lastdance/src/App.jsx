@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import "./App.css";
 import { get } from "./apis/userFetcher";
 import ErrorBoundary from "./components/ErrorBoundary";
 import TempComponent from "./components/TempComponent";
+import Loading from "./components/Loading";
 
 function B() {
   throw new Error();
@@ -23,7 +24,9 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <TempComponent />
+      <Suspense fallback={<Loading />}>
+        <TempComponent />
+      </Suspense>
     </ErrorBoundary>
   );
 }
