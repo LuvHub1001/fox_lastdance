@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { throwAsyncError } from "./useAsyncError";
+import throwAsyncError from "./useAsyncError";
 
 const useFetch = (fetch, params, config) => {
   const [_promise, _setPromise] = useState();
@@ -11,7 +11,7 @@ const useFetch = (fetch, params, config) => {
       _setStatus("fulfilled");
       _setResult(result);
     },
-    [params]
+    [params],
   );
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const useFetch = (fetch, params, config) => {
     _setPromise(
       fetch(params, config)
         .then(resolve)
-        .catch((err) => throwAsyncError(err))
+        .catch((err) => throwAsyncError(err)),
     );
   }, [params]);
 
