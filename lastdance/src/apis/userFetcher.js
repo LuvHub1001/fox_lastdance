@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const instanceAxios = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/",
-  timeout: 3000,
+  baseURL: "https://fakestoreapi.com/",
   headers: {
     "Content-Type": "application/json",
   },
@@ -17,7 +16,7 @@ instanceAxios.interceptors.request.use(
   },
   (err) => {
     Promise.reject(err);
-  }
+  },
 );
 
 instanceAxios.interceptors.response.use(
@@ -26,7 +25,7 @@ instanceAxios.interceptors.response.use(
   },
   (err) => {
     Promise.reject(err);
-  }
+  },
 );
 
 export const get = async (url, config = null) => {
