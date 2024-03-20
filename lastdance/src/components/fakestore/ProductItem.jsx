@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
 
 const ProductsHeader = styled.div`
@@ -18,14 +19,12 @@ const ProductsFooter = styled.div`
   border-bottom: 1px solid blue;
 `;
 
-function ProductItem({ item }) {
+function ProductItem({ items }) {
   return (
-    <div className="productsItemWrapper">
-      <div key={item.id} className="productsItemWrapper">
-        <ProductsHeader>{item.title}</ProductsHeader>
-        <ProductsBody src={item.image}></ProductsBody>
-        <ProductsFooter>{item.description}</ProductsFooter>
-      </div>
+    <div>
+      <ProductsHeader>{items.title}</ProductsHeader>
+      <ProductsBody src={items.image}></ProductsBody>
+      <ProductsFooter>{items.description}</ProductsFooter>
     </div>
   );
 }

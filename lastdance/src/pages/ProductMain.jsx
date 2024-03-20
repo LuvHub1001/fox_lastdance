@@ -1,9 +1,13 @@
-import { get } from "../apis/userFetcher";
-import useFetch from "../hooks/useFetch";
+import { Suspense } from "react";
+import ProductFetch from "../components/fakestore/ProductFetch";
 
 function ProductMain() {
-  const productItems = useFetch(get, "/products");
-
-  return <div>asdf</div>;
+  return (
+    <div>
+      <Suspense fallback={<div>Fetch Loading...</div>}>
+        <ProductFetch />
+      </Suspense>
+    </div>
+  );
 }
 export default ProductMain;

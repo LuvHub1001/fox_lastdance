@@ -10,7 +10,7 @@ const PublicRouter = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TempComponent />} />
-          <Route path="/products" element={<ProductMain />} />
+          <Route path="/product" element={<ProductMain />} />
         </Routes>
       </BrowserRouter>
     </Suspense>

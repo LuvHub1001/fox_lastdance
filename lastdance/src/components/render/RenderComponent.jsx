@@ -1,4 +1,15 @@
+/* eslint-disable react/prop-types */
 function RenderComponent({ className, items, render }) {
-  return <div className={className}>{items.map((item) => render(item))}</div>;
+  return (
+    <>
+      {items.map((item) => {
+        return (
+          <div key={item.id} className={className}>
+            {render(item)}
+          </div>
+        );
+      })}
+    </>
+  );
 }
 export default RenderComponent;
