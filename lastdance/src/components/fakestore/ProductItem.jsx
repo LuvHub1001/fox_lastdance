@@ -10,12 +10,14 @@ const ProductsHeader = styled.div`
 
 const ProductsBody = styled.img`
   width: 500px;
-  height: 300px;
+  height: 200px;
   border-bottom: 1px solid red;
 `;
 
 const ProductsFooter = styled.div`
   width: 500px;
+  height: 150px;
+  margin-bottom: 100px;
   border-bottom: 1px solid blue;
 `;
 

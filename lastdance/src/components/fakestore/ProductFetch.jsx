@@ -1,14 +1,20 @@
 import { get } from "../../apis/userFetcher";
 import useFetch from "../../hooks/useFetch";
+import styled from "styled-components";
 import RenderComponent from "../render/RenderComponent";
 import ProductItem from "./ProductItem";
 
 function ProductFetch() {
   const productItems = useFetch(get, "/products");
-  // console.log(productItems);
+  const Wrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    place-items: center;
+  `;
 
   return (
-    <>
+    <Wrapper>
       {productItems && (
         <RenderComponent
           className="product-render"
@@ -18,7 +24,7 @@ function ProductFetch() {
           }}
         />
       )}
-    </>
+    </Wrapper>
   );
 }
 export default ProductFetch;
