@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {get} from "../../apis/useFetcher"
+import useFetch from "../../hooks/useFetch";
 
 const PokemonHeader = styled.div`
   display: flex;
@@ -7,15 +9,17 @@ const PokemonHeader = styled.div`
 `;
 
 const PokemonBody = styled.img`
-  width : 100%;
-  height : 100%;
+  width : 200px;
+  height : 100px;
 `;
 
 function PokemonItem({item}) {
+  const PokeImgIdx = (item.url.replace(/[^0-9]/g,"").slice(1));
+  const PokeImgData = useFetch(get,`pokemon/${PokeImgIdx}`);
   return (
     <div>
       <PokemonHeader>{item.name}</PokemonHeader>
-      <PokemonBody src={item.url}></PokemonBody>
+      <PokemonBody src={`${PokeImgData.data.sprites.front_default}`}></PokemonBody>
     </div>
   );
 }

@@ -5,9 +5,6 @@ import PokemonItem from "./PokemonItem";
 
 function PokemonFetch() {
   const pokemons = useFetch(get,"pokemon/");
-  console.log(pokemons)
-  
-
   return (
     <div>
       {pokemons && (
