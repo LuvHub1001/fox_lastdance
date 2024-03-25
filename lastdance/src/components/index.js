@@ -9,4 +9,14 @@ import ProductItem from "./fakestore/ProductItem";
 // render
 import RenderComponent from "./render/RenderComponent";
 
-export { ErrorBoundary, Loading, ProductFetch, ProductItem, RenderComponent };
+// header
+import Header from "./header/Header";
+
+export {
+  ErrorBoundary,
+  Loading,
+  ProductFetch,
+  ProductItem,
+  RenderComponent,
+  Header,
+};

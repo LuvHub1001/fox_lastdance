@@ -1,7 +1,6 @@
-import { get } from "../../apis/userFetcher";
-import useFetch from "../../hooks/useFetch";
 import styled from "styled-components";
-
+import { get } from "../../apis/userFetcher";
+import { useFetch } from "../../hooks";
 import { RenderComponent, ProductItem } from "..";
 
 function ProductFetch() {

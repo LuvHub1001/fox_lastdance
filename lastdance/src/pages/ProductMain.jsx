@@ -1,13 +1,13 @@
 import { Suspense } from "react";
-import { ProductFetch } from "../components";
+import { ProductFetch, ErrorBoundary } from "../components";
 
 function ProductMain() {
   return (
-    <div>
+    <ErrorBoundary fallback={<div>Fetch Error...</div>}>
       <Suspense fallback={<div>Fetch Loading...</div>}>
         <ProductFetch />
       </Suspense>
-    </div>
+    </ErrorBoundary>
   );
 }
 export default ProductMain;

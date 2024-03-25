@@ -26,7 +26,7 @@ class ErrorBoundary extends Component {
     const { hasError } = this.state;
 
     if (hasError) {
-      return <div>Global Error</div>;
+      return <div>{this.props.fallback}</div>;
     }
 
     return this.props.children;

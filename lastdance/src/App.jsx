@@ -1,14 +1,15 @@
-import ErrorBoundary from "./components/common/ErrorBoundary";
-import PublicRouter from "./routes/PublicRouter";
+import { Suspense } from "react";
 import "./App.css";
+import PublicRouter from "./routes/PublicRouter";
+import { Loading, ErrorBoundary } from "./components";
 
 function App() {
   return (
-    <>
-      <ErrorBoundary>
+    <ErrorBoundary fallback={<div>Global Error...</div>}>
+      <Suspense fallback={<Loading />}>
         <PublicRouter />
-      </ErrorBoundary>
-    </>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
