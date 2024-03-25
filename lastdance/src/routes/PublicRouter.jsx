@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Loading from "../components/Loading";
+import Loading from "../components/common/Loading";
 const ProductMain = React.lazy(() => import("../pages/ProductMain"));
 
 const PublicRouter = () => {
