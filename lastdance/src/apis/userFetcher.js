@@ -15,7 +15,7 @@ instanceAxios.interceptors.request.use(
     return req;
   },
   (err) => {
-    Promise.reject(err);
+    return Promise.reject(err);
   },
 );
 
@@ -24,7 +24,7 @@ instanceAxios.interceptors.response.use(
     return res;
   },
   (err) => {
-    Promise.reject(err);
+    return Promise.reject(err);
   },
 );
 

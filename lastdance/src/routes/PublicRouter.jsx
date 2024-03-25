@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loading from "../components/Loading";
-const TempComponent = React.lazy(() => import("../components/TempComponent"));
 const ProductMain = React.lazy(() => import("../pages/ProductMain"));
 
 const PublicRouter = () => {
@@ -9,7 +8,6 @@ const PublicRouter = () => {
     <Suspense fallback={<Loading />}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<TempComponent />} />
           <Route path="/product" element={<ProductMain />} />
         </Routes>
       </BrowserRouter>

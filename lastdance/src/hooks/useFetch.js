@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-import throwAsyncError from "./useAsyncError";
+import useAsyncError from "./useAsyncError";
 
 const useFetch = (fetch, params, config) => {
+  const { throwAsyncError } = useAsyncError();
+
   const [_promise, _setPromise] = useState();
   const [_status, _setStatus] = useState("pending");
   const [_result, _setResult] = useState(null);
