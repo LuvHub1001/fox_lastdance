@@ -1,10 +1,12 @@
 import { useState, useCallback, useEffect } from "react";
-import catchAsyncError from "./useAsyncError";
+import { useAsyncError } from "../hooks";
 
 const useFetch = (fetch, params, config) => {
   const [_promise, _setPromise] = useState();
   const [_status, _setStatus] = useState("pending");
   const [_result, _setResult] = useState(null);
+
+  const catchAsyncError = useAsyncError();
 
   const resolve = useCallback(
     (result) => {

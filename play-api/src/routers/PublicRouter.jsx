@@ -1,7 +1,7 @@
-import React from "react";
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const PokemonMain = React.lazy(() => import("../pages/PokemonMain"));
+const PokemonMain = lazy(() => import("../pages/PokemonMain"));
 
 function PublicRouter() {
   return (
