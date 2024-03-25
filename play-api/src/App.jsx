@@ -1,12 +1,12 @@
 import "./App.css";
-import ErrorBoundary from "./components/common/ErrorBoundary";
-import TempItem from "./components/pokemon/TempItem";
+// import ErrorBoundary from "./components/common/ErrorBoundary";
 import PublicRouter from "./routers/PublicRouter";
+import { ErrorBoundary } from "./components";
 
 function App() {
   return (
     <ErrorBoundary>
-      <TempItem />
+      <PublicRouter />
     </ErrorBoundary>
   );
 }

@@ -1,10 +1,9 @@
 import { get } from "../../apis/useFetcher";
 import useFetch from "../../hooks/useFetch";
-import RenderComponent from "../common/RenderComponent";
-import PokemonItem from "./PokemonItem";
+import { PokemonFetch, PokemonItem, RenderComponent } from "../../components";
 
 function PokemonFetch() {
-  const pokemons = useFetch(get,"pokemon/");
+  const pokemons = useFetch(get, "pokemon/");
   return (
     <div>
       {pokemons && (

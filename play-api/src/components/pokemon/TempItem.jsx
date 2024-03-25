@@ -12,12 +12,9 @@ function TempItem(){
     },[]);
 
     const pokeArr = (pokeItem && pokeItem.data.results);
-
-    console.log(pokeArr);
-    
-        useEffect(()=>{
+    useEffect(()=>{
             (async()=>{
-                const tempUrl = await get(pokeArr[0].url);
+                const tempUrl = await get(pokeArr[0].url,null);
                 setPokeItemDetail(tempUrl);
             })();
         },[]);
