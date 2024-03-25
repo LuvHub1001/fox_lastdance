@@ -1,15 +1,19 @@
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const PokemonMain = lazy(() => import("../pages/PokemonMain"));
+const Header = lazy(() => import("../components/headers/Header"));
 
 function PublicRouter() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/pokemon" element={<PokemonMain />} />
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<div>Loading...</div>}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />} />
+          <Route path="/pokemon" element={<PokemonMain />} />
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 export default PublicRouter;
