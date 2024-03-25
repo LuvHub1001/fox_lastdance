@@ -6,7 +6,7 @@ const useFetch = (fetch, params, config) => {
   const [_status, _setStatus] = useState("pending");
   const [_result, _setResult] = useState(null);
 
-  const catchAsyncError = useAsyncError();
+  const { catchAsyncError } = useAsyncError();
 
   const resolve = useCallback(
     (result) => {
