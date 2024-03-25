@@ -1,12 +1,8 @@
 function RenderComponent({ className, items, render }) {
   return (
-    <div>
+    <div className={className}>
       {items.map((item, idx) => {
-        return (
-          <div className={className} key={idx}>
-            {render(item)}
-          </div>
-        );
+        return <div key={idx}>{render(item)}</div>;
       })}
     </div>
   );
