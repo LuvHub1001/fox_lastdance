@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ProductFetch from "../components/fakestore/ProductFetch";
+import { ProductFetch } from "../components";
 
 function ProductMain() {
   return (

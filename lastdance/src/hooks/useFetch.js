@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import useAsyncError from "./useAsyncError";
+import { useAsyncError } from ".";
 
 const useFetch = (fetch, params, config) => {
   const { throwAsyncError } = useAsyncError();

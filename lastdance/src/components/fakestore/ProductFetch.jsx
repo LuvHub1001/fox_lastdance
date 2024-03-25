@@ -1,8 +1,8 @@
 import { get } from "../../apis/userFetcher";
 import useFetch from "../../hooks/useFetch";
 import styled from "styled-components";
-import RenderComponent from "../render/RenderComponent";
-import ProductItem from "./ProductItem";
+
+import { RenderComponent, ProductItem } from "..";
 
 function ProductFetch() {
   const productItems = useFetch(get, "/products");

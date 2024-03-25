@@ -1,7 +1,8 @@
-import React, { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Loading from "../components/common/Loading";
-const ProductMain = React.lazy(() => import("../pages/ProductMain"));
+import { Loading } from "../components";
+
+const ProductMain = lazy(() => import("../pages/ProductMain"));
 
 const PublicRouter = () => {
   return (
@@ -14,4 +15,5 @@ const PublicRouter = () => {
     </Suspense>
   );
 };
+
 export default PublicRouter;
