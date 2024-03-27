@@ -4,8 +4,8 @@ const RETRY_TIME_COUNT = 500;
 const AXIOS_TIMEOUT = 3000;
 
 // 최대 3번 재시도
-const retryMaxCount = 3;
-const retryCount = 0;
+let retryMaxCount = 3;
+let retryCount = 0;
 
 const instanceAxios = axios.create({
   baseURL: "https://fakestoreapi.com/",
@@ -99,6 +99,6 @@ export const del = async (url, config) => {
 
 const backoffRequest = async (times, config) => {
   setTimeout(async () => {
-    await this.fetcher.request(config);
+    await instanceAxios.request(config);
   }, times);
 };
