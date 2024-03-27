@@ -28,6 +28,8 @@ instanceAxios.interceptors.request.use(
         alert(
           `Cannot Find Endpoint :: ${err.config?.baseURL} ${err.config.url}`,
         );
+      } else if (err.status === HttpStatusCode.BadRequest) {
+        console.error(`Bad Request :: ${err.config.data}`);
       } else {
         throw err;
       }

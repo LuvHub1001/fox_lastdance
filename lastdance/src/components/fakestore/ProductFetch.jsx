@@ -4,7 +4,7 @@ import { useFetch } from "../../hooks";
 import { RenderComponent, ProductItem } from "..";
 
 function ProductFetch() {
-  const productItems = useFetch(get, "/products");
+  const productItems = useFetch(get, "/productszxcvxzvcxzvzx");
   const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
