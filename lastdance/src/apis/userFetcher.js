@@ -80,6 +80,8 @@ instanceAxios.interceptors.response.use(
     } else {
       throw err;
     }
+
+    return Promise.reject(err);
   },
 );
 
